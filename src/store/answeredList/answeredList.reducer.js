@@ -1,14 +1,14 @@
 
 export function asnweredListReducer (state =[], action) {
     switch (action.type) {
-        case "ADD":
+        case "ANSWEREDLIST/ADD":
             return [
                 ...state,
                 {
                     ...action.payload
                 }
             ];
-        case "CLEAR":
+        case "ANSWEREDLIST/CLEAR":
             return [];
     
         default:
