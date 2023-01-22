@@ -6,6 +6,7 @@ export function useQuestionGenerator () {
         const questionType = Math.random() > 0.5 ? "word" : "translate";
         const questionObj = randomIndex(words);
         const question = questionObj[questionType];
+        const validAnswer = questionType === "word" ? questionObj.translate : questionObj.word;
         const items = []
         for (let i = 0; i < 3; i++){
             items.push(questionType === "word" ? randomIndex(words)["translate"] : randomIndex(word)["word"])
@@ -14,19 +15,10 @@ export function useQuestionGenerator () {
             questionId: questionObj.id,
             question,
             items,
+            validAnswer
         }
     }
 
-    function isAsnwerValid({id, question, userAnswer}) {
-        const questionObj = words[id-1];
-        if (questionObj.word === question){
-            return userAnswer === questionObj.translate ? true : false;
-        }else if (questionObj.translate === question) {
-            return userAnswer === questionObj.word ? true : false;
-        }
-    }
-    return {
-        generateQuestion,
-        isAsnwerValid,
-    }
+    return { generateQuestion };
+
 }
