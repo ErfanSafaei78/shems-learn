@@ -5,7 +5,7 @@ export function useQuestionCounter() {
     const dispatch = useDispatch();
     const counterState = useSelector(state => state.questionCounter)
 
-    function INC(){
+    function addCount(){
         dispatch({
             type:"COUNTER/INC",
         })
@@ -39,7 +39,7 @@ export function useQuestionCounter() {
         }
     }
     return {
-        INC,
+        addCount,
         clear,
         isValidToAnswer,
     }
