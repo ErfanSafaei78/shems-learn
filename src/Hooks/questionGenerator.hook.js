@@ -7,14 +7,18 @@ export function useQuestionGenerator (words) {
     const question = questionObj[questionType];
     const validAnswer = questionType === "word" ? questionObj.translate : questionObj.word;
     //انتخاب سه آیتم رندوم برای گزینه های سوال به نسبت تایپ صورت سوال
-    const items = []
+    const items = [validAnswer]
     for (let i = 0; i < 3; i++){
-        items.push(questionType === "word" ? randomIndex(words)["translate"] : randomIndex(word)["word"])
+        const itemObj = randomIndex(words);
+        if (itemObj[questionType] === question){
+            i--
+        }else {
+            items.push(questionType === "word" ? itemObj["translate"] : itemObj["word"])
+        }
     }
     return {
         questionId: questionObj.id,
-        question,
+        questionType,
         items,
-        validAnswer
     }
 }
