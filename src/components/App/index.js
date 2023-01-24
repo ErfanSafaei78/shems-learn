@@ -20,13 +20,7 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-/* Theme variables */
-// import './theme/variables.css';
-import { Main2 }from '../../pages/Main2';
-import { Main1 }from '../../pages/Main1';
-import { Main3 }from '../../pages/Main3';
-import { Main4 }from '../../pages/Main4';
-import { Main5 }from '../../pages/Main5';
+import { Main }from '../../pages/Main';
 import { Result } from '../../pages/Result';
 
 //ionic components
@@ -50,19 +44,7 @@ export function App() {
           <Home />
         </Route>
         <Route exact path="/main1">
-          <Main1 />
-        </Route>
-        <Route exact path="/main2">
-          <Main2 />
-        </Route>
-        <Route exact path="/main3">
-          <Main3 />
-        </Route>
-        <Route exact path="/main4">
-          <Main4 />
-        </Route>
-        <Route exact path="/main5">
-          <Main5 />
+          <Main />
         </Route>
         <Route exact path="/result">
           <Result />

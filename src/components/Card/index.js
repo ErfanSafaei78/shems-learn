@@ -12,9 +12,9 @@ export function Card(props) {
     <>
       <IonCard className="card" color={props.color}>
         <IonCardHeader>
-          <IonCardSubtitle>{props.timer}</IonCardSubtitle>
+          <IonCardSubtitle>{props.title}</IonCardSubtitle>
           <IonCardTitle style={{ textAlign: "center" }}>
-            {`${props.number}- Meaning : ${props.value}`}
+          {` Meaning : ${props.value}`}
           </IonCardTitle>
         </IonCardHeader>
       </IonCard>

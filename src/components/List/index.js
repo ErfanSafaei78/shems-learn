@@ -1,6 +1,6 @@
 import { IonItem, IonLabel, IonList } from "@ionic/react";
 import "./index.css";
-function List(props) {
+export function List(props) {
   return (
     <IonList inset={false}>
       <IonItem className="center" color={props.color}>
@@ -11,4 +11,3 @@ function List(props) {
     </IonList>
   );
 }
-export default List;
