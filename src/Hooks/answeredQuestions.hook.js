@@ -7,6 +7,10 @@ export function useAnsweredQuestions() {
   function addQuestion(questionObj, userAnswer) {
     dispatch({
       type: "ANSWEREDLIST/ADD",
+      payload: {
+        ...questionObj,
+        userAnswer
+      }
     });
 
     localStorage.setItem(
