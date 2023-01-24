@@ -27,14 +27,14 @@ export function useQuestionCounter() {
     }
 
     function isValidToAnswer() {
-        const countDown = 24 * 60 * 60 * 1000;
+        const countDown = 24 * 60 * 60 * 1000; //مقدار 24 ساعت در میلی ثانیه
         const questionCounterState = JSON.parse(localStorage.getItem("questionCounterState"));
-        if (time - questionCounterState.time > countDown ) {
+        if (time - questionCounterState.time > countDown ) { // از 24 ساعت گذشته باشد
             clear();
             return true;
-        } else if (questionCounterState.counterState >= 5) {
+        } else if (questionCounterState.counterState >= 5) { // از 24 ساعت نگذشته باشد و یوزر 5 سوال خود را جواب داده باشد
             return false;
-        } else if (questionCounterState.counterState < 5) {
+        } else if (questionCounterState.counterState < 5) { // از 24 ساعت نگذشته باشد و یوزر کمتر از 5 سوال جواب داده باشد
             return true;
         }
     }
