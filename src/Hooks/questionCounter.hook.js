@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 
 export function useQuestionCounter() {
-    const time = new Date().getTime;
+    const time = [new Date().getFullYear(), new Date().getMonth(), new Date().getDate()];
     const dispatch = useDispatch();
     const counterState = useSelector(state => state.questionCounter)
 
@@ -27,9 +27,10 @@ export function useQuestionCounter() {
     }
 
     function isValidToAnswer() {
-        const countDown = 24 * 60 * 60 * 1000; //مقدار 24 ساعت در میلی ثانیه
         const questionCounterState = JSON.parse(localStorage.getItem("questionCounterState"));
-        if (time - questionCounterState.time > countDown ) { // از 24 ساعت گذشته باشد
+        const [year, month, date] = questionCounterState.time;
+
+        if (+date < time[2] || +month < time[1] || +year < time[0]) { 
             clear();
             return true;
         } else if (questionCounterState.counterState >= 5) { // از 24 ساعت نگذشته باشد و یوزر 5 سوال خود را جواب داده باشد
