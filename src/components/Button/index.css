@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+.btn{
+    width: 80%;
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+
+}
+.link{
+    padding: 10px;
+    width:100%;
+    text-decoration: none;
+    color: #000;
+}
