@@ -3,7 +3,6 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonReactRouter } from '@ionic/react-router';
 import { setupIonicReact } from '@ionic/react';
 
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -20,38 +19,42 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
+//pages
+import { Home } from '../../pages/Home';
 import { Main }from '../../pages/Main';
 import { Result } from '../../pages/Result';
 
 //ionic components
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 
-//pages
-import { Home } from '../../pages/Home';
+//contexts
+import {wordsContext, wordsList} from '../../contexts/words.context';
 
 setupIonicReact();
 
 export function App() {
 
   return (
-    <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/main1">
-          <Main />
-        </Route>
-        <Route exact path="/result">
-          <Result />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
+    <wordsContext.Provider value={wordsList}>
+      <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/main">
+            <Main />
+          </Route>
+          <Route exact path="/result">
+            <Result />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+    </wordsContext.Provider>
   );
 }
 
