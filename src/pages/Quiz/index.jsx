@@ -34,7 +34,7 @@ export function Quiz() {
   const [userAnswer, setUserAnswer] = useState(null);
 
   function handleUserAnswer(userAnswer) {
-    setUserAnswer(userAnswer);
+    setUserAnswer( state => state = userAnswer);
   }
   
   //Generate Questions
@@ -54,16 +54,15 @@ export function Quiz() {
     asnweredList.addQuestion(activeQuestion,userAnswer);
     questionCounter.updateCount(counterState.counter +1);
     setActiveQuestionIndex(index => index + 1);
-    setUserAnswer(null);
+    setUserAnswer(state => state = null);
   }
   
   function finishClickHandller() {
     asnweredList.addQuestion(activeQuestion,userAnswer);
     questionCounter.updateCount(counterState.counter +1);
-    setUserAnswer(null);
+    setUserAnswer(state => state = null);
   }
 
-  
   return (
     <>
       <IonPage>
