@@ -1,16 +1,12 @@
-import {
-  IonItem,
-  IonLabel,
-  IonRadio,
-} from "@ionic/react";
+import { IonItem, IonLabel, IonRadio } from "@ionic/react";
 
 export function Radio(props) {
   return (
-    <>
-      <IonItem>
-        <IonLabel>{props.valueRadio}</IonLabel>
-        <IonRadio slot="end" value={props.valueRadio}></IonRadio>
-      </IonItem>
-    </>
+    <IonItem>
+      <IonLabel>{props.answer}</IonLabel>
+      <IonRadio slot="end" value={props.index}>
+        {props.answer}
+      </IonRadio>
+    </IonItem>
   );
 }
